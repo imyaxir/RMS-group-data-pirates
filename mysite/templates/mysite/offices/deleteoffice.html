@@ -1,0 +1,40 @@
+{% extends 'mysite/index.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="col-lg-10">
+     <div class="card">
+          <div class="card-header">
+                <strong>Delete Office</strong>
+            </div>
+            <div class="card-body card-block">
+                <form action="{% url 'adddept' %}" method="POST" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="hf-email" class=" form-control-label">Name</label>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input id="hf-email" name="desname" placeholder=" " class="form-control">
+
+                        </div>
+                    </div>
+                 <div class="card-footer" >
+
+                <button type="Delete" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Delete
+                </button>
+                 </div>
+                </form>
+
+            </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+<!-- end document-->

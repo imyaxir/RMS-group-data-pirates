@@ -1,0 +1,60 @@
+{% extends 'mysite/index.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="col-lg-10">
+     <div class="card">
+          <div class="card-header">
+                <strong>New Designation</strong>
+            </div>
+            <div class="card-body card-block">
+                <form action="{% url 'adddept' %}" method="POST" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="hf-email" class=" form-control-label">Name</label>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input id="hf-email" name="desname" placeholder=" " class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="hf-password" class=" form-control-label">Status</label>
+                        </div>
+                        <div class="row form-group">
+                        <div class="col col-md-9">
+                            <!--<label for="select" class=" form-control-label">Select</label> -->
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <select name="select" id="select" class="form-control">
+                                <option value="0">Please select</option>
+                                <option value="1">Available</option>
+                                <option value="2">Not Available</option>
+                                <option value="3">Obsolete</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+                    {% csrf_token %}
+                 <div class="card-footer" >
+                <button type="submit" class="btn btn-primary btn-sm"  >
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+                <button type="reset" class="btn btn-danger btn-sm">
+                    <i class="fa fa-ban"></i> Reset
+                </button>
+                 </div>
+                </form>
+
+            </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+<!-- end document-->
