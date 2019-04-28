@@ -9,13 +9,26 @@
                 <strong>Offices List</strong>
             </div>
             <div class="card-body card-block">
-                <form action="{% url 'adddept' %}" method="POST" class="form-horizontal">
-                    <div class="row form-group">
-                        <div class="col col-md-3">
-                            <label for="hf-email" class=" form-control-label">Empty</label>
-                        </div>
+                <form action="{% url 'viewo' %}" method="POST" class="form-horizontal">
+                     <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">City Name</th>
+                          <th scope="col">HR Manager</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for post in posts %}
 
-                    </div>
+                        <tr>
+                          <th scope="row">{{  post.ID}}</th>
+                          <td>{{ post.Offices_Name }}</td>
+                          <td>{{ post.HRManager }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
                 </form>
 
             </div>

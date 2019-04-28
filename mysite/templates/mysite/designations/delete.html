@@ -9,24 +9,35 @@
                 <strong>Delete Designation</strong>
             </div>
             <div class="card-body card-block">
-                <form action="{% url 'adddept' %}" method="POST" class="form-horizontal">
+                <form action="{% url 'deletedes' %}" method="POST" class="form-horizontal">
                     {% csrf_token %}
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="hf-email" class=" form-control-label">Name</label>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <input id="hf-email" name="desname" placeholder=" " class="form-control">
+                        <div class="col-12 col-md-3">
+                            <select name="select" id="select" class="form-control">
 
+                                 {% for post in posts %}
+                                    <option value="{{ post.DesignationName }}">{{ post.DesignationName }}</option>
+                                 {% endfor %}
+
+                            </select>
                         </div>
                     </div>
 
-                 <div class="card-footer" >
+                     <div class="card-footer" >
+                        <button type="submit" class="btn btn-primary btn-sm" name="Edit" >
+                                <i class="fa fa-dot-circle-o" ></i> Edit
+                         </button>
+                        <button type="Delete" name="Delete" class="btn btn-danger btn-sm" onclick="{{ m }}">
+                            <i class="fa fa-ban" ></i> Delete
+                        </button>
+                          <label for="hf-password" class=" form-control-label">     {{ messagess}}
+                         </label>
 
-                <button type="Delete" class="btn btn-danger btn-sm">
-                    <i class="fa fa-ban"></i> Delete
-                </button>
-                 </div>
+
+                     </div>
                 </form>
 
             </div>

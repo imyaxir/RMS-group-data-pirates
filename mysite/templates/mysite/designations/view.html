@@ -10,12 +10,25 @@
             </div>
             <div class="card-body card-block">
                 <form action="{% url 'adddept' %}" method="POST" class="form-horizontal">
-                    <div class="row form-group">
-                        <div class="col col-md-3">
-                            <label for="hf-email" class=" form-control-label">Empty</label>
-                        </div>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
 
-                    </div>
+                          <th scope="col">Designation Name</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for post in posts %}
+
+                        <tr>
+
+                          <td>{{ post.DesignationName }}</td>
+                          <td>{{ post.Status }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
                 </form>
 
             </div>
@@ -24,6 +37,7 @@
         </div>
         </div>
     </div>
+
 
 {% endblock %}
 
